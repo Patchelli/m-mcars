@@ -67,7 +67,7 @@
   }
   
   .journey__time::before {
-    content: "Journey time";
+    content: "Hora da viagem";
     margin-right: 0.8rem;
     color: #7c8a97;
   }
