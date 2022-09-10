@@ -70,7 +70,7 @@ const Header = () => {
             <Col lg="4" md="3" sm="4">
               <div className="logo">
                 <h1>
-                  <Link to="/home" className=" d-flex align-items-center gap-2">
+                  <Link to="/inicio" className=" d-flex align-items-center gap-2">
                     <i class="ri-car-line"></i>
                     <span>
                     M&Mcar´s<br /> Serviços
