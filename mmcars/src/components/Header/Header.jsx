@@ -112,7 +112,7 @@ const Header = () => {
             >
               <button className="header__btn btn ">
                 <Link to="/contact">
-                  <i class="ri-phone-line"></i> Ligar-Me
+                  <i class="ri-phone-line"></i> Ligar
                 </Link>
               </button>
             </Col>
