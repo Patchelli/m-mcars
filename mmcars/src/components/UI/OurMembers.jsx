@@ -8,18 +8,18 @@ import ava03 from "../../assets/all-images/ava-3.jpg";
 
 const OUR__MEMBERS = [
   {
-    name: "Jhon Doe",
-    experience: "5 years of experience",
+    name: "Matheus Filipe Costa Mendes Machado",
+    experience: "GRR 20197482",
     fbUrl: "#",
     instUrl: "#",
     twitUrl: "#",
-    linkedinUrl: "#",
+    linkedinUrl: "https://www.linkedin.com/in/matheus-filipe-costa-mendes-machado-9348341a3",
     imgUrl: ava01,
   },
 
   {
-    name: "David Lisa",
-    experience: "5 years of experience",
+    name: "Murilo dos Santos  ",
+    experience: "GRR 20197482",
     fbUrl: "#",
     instUrl: "#",
     twitUrl: "#",
@@ -28,8 +28,8 @@ const OUR__MEMBERS = [
   },
 
   {
-    name: "Hilton King",
-    experience: "5 years of experience",
+    name: "Wenderson Patrick de Souza Costa",
+    experience: "GRR 20193841",
     fbUrl: "#",
     instUrl: "#",
     twitUrl: "#",
@@ -37,15 +37,6 @@ const OUR__MEMBERS = [
     imgUrl: ava03,
   },
 
-  {
-    name: "Jhon Doe",
-    experience: "5 years of experience",
-    fbUrl: "#",
-    instUrl: "#",
-    twitUrl: "#",
-    linkedinUrl: "#",
-    imgUrl: ava01,
-  },
 ];
 
 const OurMembers = () => {
@@ -65,7 +56,7 @@ const OurMembers = () => {
                   <i class="ri-twitter-line"></i>
                 </Link>
 
-                <Link to={item.linkedinUrl}>
+                <Link target="_blank" to={item.linkedinUrl}>
                   <i class="ri-linkedin-line"></i>
                 </Link>
 
