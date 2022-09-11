@@ -1,32 +1,60 @@
 import React from "react";
 import "../../styles/booking-form.css";
 import { Form, FormGroup } from "reactstrap";
-
+import { useState, useEffect } from "react";
 const BookingForm = () => {
-  const submitHandler = (event) => {
-    event.preventDefault();
+  const initialValues = { firstname: "", lastname: "", email: "",celular:"",origem:"",destino:"",data:"",mensagem:"" };
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmit(true);
+  };
+
+  useEffect(() => {
+    console.log(formErrors);
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      console.log(formValues);
+    }
+  }, [formErrors]);
+
   return (
-    <Form onSubmit={submitHandler}>
+
+    <div>
+    {Object.keys(formErrors).length === 0 && isSubmit ? (
+      <div className="ui message success"style={{color:"green"}} >Enviado com Sucesso</div>
+    ) : (
+      <pre></pre>
+    )}
+    
+    
+    <Form onSubmit={handleSubmit} >
       <FormGroup className="booking__form d-inline-block me-4 mb-4">
-        <input type="text" placeholder="Primeiro Nome" required />
+        <input value={formValues.firstname} onChange={handleChange} name="firstname" type="text" placeholder="Primeiro Nome" required />
       </FormGroup>
       <FormGroup className="booking__form d-inline-block ms-1 mb-4">
-        <input type="text" placeholder="Ultimo Nome" />
+        <input value={formValues.lastname} onChange={handleChange} name="lastname"  type="text" placeholder="Ultimo Nome" required />
       </FormGroup>
 
       <FormGroup className="booking__form d-inline-block me-4 mb-4">
-        <input type="email" placeholder="Email" />
+        <input value={formValues.email} onChange={handleChange} name="email" type="email" placeholder="Email"  required/>
       </FormGroup>
       <FormGroup className="booking__form d-inline-block ms-1 mb-4">
-        <input type="number" placeholder="Celular" />
+        <input value={formValues.celular} onChange={handleChange} name="celular" type="number" placeholder="Celular" required />
       </FormGroup>
 
       <FormGroup className="booking__form d-inline-block me-4 mb-4">
-        <input type="text" placeholder="Origem" />
+        <input value={formValues.origem} onChange={handleChange} name="origem" type="text" placeholder="Origem"  required/>
       </FormGroup>
       <FormGroup className="booking__form d-inline-block ms-1 mb-4">
-        <input type="text" placeholder="Destino" />
+        <input value={formValues.destino} onChange={handleChange} name="destino" type="text" placeholder="Destino"  required/>
       </FormGroup>
 
       <FormGroup className="booking__form d-inline-block me-4 mb-4">
@@ -49,7 +77,7 @@ const BookingForm = () => {
       </FormGroup>
 
       <FormGroup className="booking__form d-inline-block me-4 mb-4">
-        <input type="date" placeholder="Data da Viagem" />
+        <input value={formValues.data} onChange={handleChange} name="data" type="date" placeholder="Data da Viagem"  required/>
       </FormGroup>
       <FormGroup className="booking__form d-inline-block ms-1 mb-4">
         <input
@@ -60,14 +88,20 @@ const BookingForm = () => {
       </FormGroup>
 
       <FormGroup>
-        <textarea
+        <textarea 
+        value={formValues.mensagem} onChange={handleChange} name="mensagem"
           rows={5}
           type="textarea"
           className="textarea"
           placeholder="Mensagem"
+          required
         ></textarea>
       </FormGroup>
+      <div className="payment text-end mt-5">
+        <button>Enviar</button>
+      </div>
     </Form>
+    </div>
   );
 };
 

@@ -19,7 +19,7 @@
   }
   
   .time__picker::before {
-    content: "Data da Viagem ";
+    content: "Hora da Viagem ";
     color: #7c8a97;
     margin-right: 0.5rem;
   }
